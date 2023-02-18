@@ -1,0 +1,13 @@
+title Part A2
+
+actor "s:scheduler" as s
+participant "z:zoomcall" as z
+participant "p1:partispaint" as p1
+participant "p2:partispant" as p2
+
+s -->>*z:<<create>>
+s->p1:join(z)
+
+s<--p1:true
+s->p2:join(z)
+s<--p2:true
