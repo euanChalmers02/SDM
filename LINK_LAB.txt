@@ -1,0 +1,37 @@
+
+LINK TREE FOR LAB ->
+
+*********
+Sequence Diagram Documentation
+
+https://sequencediagram.org/instructions.html
+
+
+How to have instances:
+    participant "c:Controller" as C
+
+********
+
+UML cheatsheet:
+https://www.guru99.com/uml-cheatsheet-reference-guide.html
+
+Uml Relationships:
+https://www.ibm.com/docs/en/rational-soft-arch/9.7.0?topic=diagrams-relationships-in-class
+
+
+*********
+
+UML Activity Diagram:
+https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-activity-diagram/
+
+
+*********
+OCL:
+https://st.inf.tu-dresden.de/files/general/OCLByExampleLecture.pdf
+
+*********
+UML SPEC:
+https://www.omg.org/spec/UML/2.5.1/PDF
+
+
+*********
