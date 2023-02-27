@@ -1,0 +1,69 @@
+title Online Rental System
+
+actor refernces
+actor renter
+participant "a:account" as a
+participant "p:property" as p
+participant credit check sys
+
+activate renter
+renter -->*a:<<create>>
+activate a
+renter ->a:addPermissions()
+
+refernces ->a:addRefernces()
+activate refernces
+a-->>refernces:Success
+deactivate refernces
+
+a->agent:basicApproval()
+activate agent
+agent->agent:checkRefernces()
+activate agent
+space
+deactivate agent
+agent-->a:Result
+deactivate agent
+
+a->credit check sys:check()
+alt salary >50k & Result is True
+credit check sys-->>a:success
+a->p:applyForProperty(a)
+activate p
+
+p->p:checkEligabilty(a)
+activate p
+space 2
+
+p-->>a:result
+
+a->a:SetRentDayAndPrice()
+activate a
+space 2
+deactivate a
+
+deactivate p
+else 
+credit check sys-->>a:fail
+end 
+a-->>renter:EmailResult()
+
+
+loop x <100
+a->a:checkXYZ()
+activate a
+space 2
+deactivate a
+
+end
+
+
+deactivate a
+deactivate renter
+
+
+==End==
+
+
+
+
