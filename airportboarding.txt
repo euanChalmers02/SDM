@@ -1,0 +1,37 @@
+title Airport Boarding
+
+actor passanger
+actor checkin representative
+
+activate passanger
+
+passanger -> checkin representative:presentTicket()
+activate checkin representative
+checkin representative ->passanger services: validateTicket()
+checkin representative<<--passanger services:Success
+
+passanger->checkin representative:checkinBaggage()
+
+activate Baggagetransportation
+checkin representative->Baggagetransportation: handBagagae()
+ 
+passanger<<--checkin representative:BoardingPass
+deactivate checkin representative
+
+deactivate passanger
+
+
+passanger -> gate:Boarding
+activate gate
+passanger<<-- gate:Success
+deactivate gate
+
+Baggagetransportation ->passanger services:[<10min to depart] requestPassangerList()
+Baggagetransportation<<--passanger services:Passanger List
+deactivate Baggagetransportation
+
+alt if international
+passanger services -> customs:Passanger List
+end
+
+
